@@ -9,7 +9,7 @@ interface FilterProps {
   data: Array<{ value: string; label: string }>;
 }
 
-const Filter: React.FC<FilterProps> = ({ data }) => (
+export const Filter: React.FC<FilterProps> = ({ data }) => (
   <Select
     defaultValue="Seleccione"
     style={{ width: 120 }}
@@ -17,5 +17,3 @@ const Filter: React.FC<FilterProps> = ({ data }) => (
     options={data}
   />
 );
-
-export default Filter;

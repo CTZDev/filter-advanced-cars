@@ -3,5 +3,12 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({ title }) => {
-  return <h1 className="text-center font-semibold text-4xl p-8">{title}</h1>;
+  return (
+    <header>
+      <h1 className="text-center font-medium text-5xl p-10">
+        {title.toUpperCase()}
+      </h1>
+      ;
+    </header>
+  );
 };

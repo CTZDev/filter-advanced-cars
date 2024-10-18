@@ -1,4 +1,6 @@
-const dataCar = [
+import type { CarList } from "../types/CarList";
+
+const carList: Array<CarList> = [
   {
     id: 1,
     brand: "bmw serie 3",
@@ -190,4 +192,4 @@ const dataCar = [
   },
 ];
 
-export default dataCar;
+export default carList;

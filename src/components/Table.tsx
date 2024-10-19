@@ -24,20 +24,25 @@ const updateCars = (carList: Array<CarList>) => {
 };
 
 export const Table: React.FC = () => {
-  const { carsFilter } = useContext(CarContext);
-  const listOfCars = updateCars(carsFilter);
-  console.log(listOfCars);
+  const { filteredCars } = useContext(CarContext);
+  const listOfCars = updateCars(filteredCars);
 
   return (
     <>
       <h2 className="font-bold text-pretty text-center text-3xl p-8">RESULTADOS</h2>
       <ul>
-        {listOfCars.map((data) => (
-          <li key={data} className="text-center text-base p-1.5 font-medium">
-            {data}
-            <hr />
-          </li>
-        ))}
+        {listOfCars.length === 0 ? (
+          <p className="text-center font-semibold text-lg">
+            No se encontró el auto con los filtros aplicados 😓😓😓
+          </p>
+        ) : (
+          listOfCars.map((data) => (
+            <li key={data} className="text-center text-base p-1.5 font-medium">
+              {data}
+              <hr />
+            </li>
+          ))
+        )}
       </ul>
     </>
   );

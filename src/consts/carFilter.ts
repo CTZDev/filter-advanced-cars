@@ -71,7 +71,7 @@ const carFilter: CarFilter = {
     data: [
       { value: "Seleccione", label: "Seleccione" },
       { value: "Manual", label: "Manual" },
-      { value: "Automático", label: "Automático" },
+      { value: "Automatico", label: "Automático" },
     ],
   },
   color: {

@@ -1,9 +1,9 @@
 export type CarList = {
   id: number;
   brand: string;
-  year: string;
-  doors: number;
+  year: number | string;
+  doors: number | string;
   transmission: string;
-  price: number;
+  price: number | string;
   color: string;
 };

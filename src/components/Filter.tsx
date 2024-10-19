@@ -1,16 +1,22 @@
 import { Select } from "antd";
-import React from "react";
+import React, { useContext } from "react";
+import { CarContext } from "../context/carContext";
+import type { CarList } from "../types/CarList";
 import type { OptionSelect } from "../types/Select";
 
 interface FilterProps {
   title: string;
   data: Array<OptionSelect>;
+  filterKey: keyof CarList;
 }
 
-export const Filter: React.FC<FilterProps> = ({ title, data }) => {
-  //!TODO: ACTUALIZAR CHANGE CON VALORES.
+export const Filter: React.FC<FilterProps> = ({ title, data, filterKey }) => {
+  const { filterCars } = useContext(CarContext);
+
   const handleChange = (value: string) => {
-    console.log(`Selected: ${value} `);
+    const filter = { [filterKey]: value };
+    console.log(filter);
+    filterCars(filter);
   };
 
   return (

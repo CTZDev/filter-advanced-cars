@@ -15,106 +15,63 @@ export const CarProvider: React.FC<CarProviderProps> = ({ children }) => {
   const filterCars = (filters: Partial<CarList> & PartialCarFilter) => {
     // Guardamos el estado de los filtros actuales
     const newFilters = { ...currentFilters, ...filters };
-    let filtered = [...carList];
 
-    if (newFilters.brand) {
-      const brand = newFilters.brand.toLowerCase();
-      if (brand === "seleccione") {
-        delete newFilters.brand;
-        setFilteredCars(filtered);
-      } else {
-        filtered = filtered.filter((car) => car.brand.toLowerCase().startsWith(brand));
+    const filtered = carList.filter((car) => {
+      // Filter for brand
+      if (newFilters.brand && newFilters.brand.toLowerCase() !== "seleccione") {
+        if (!car.brand.toLowerCase().startsWith(newFilters.brand.toLowerCase())) {
+          return false;
+        }
       }
-    }
 
-    if (newFilters.year) {
-      const year = newFilters.year;
-      if (year === "Seleccione") {
-        delete newFilters.year;
-        setFilteredCars(filtered);
-      } else {
-        filtered = filtered.filter((car) => car.year === year);
+      // Filter for year
+      if (newFilters.year && newFilters.year !== "Seleccione") {
+        if (car.year !== newFilters.year) {
+          return false;
+        }
       }
-    }
 
-    if (
-      newFilters.minPrice &&
-      newFilters.minPrice !== "Seleccione" &&
-      newFilters.maxPrice &&
-      newFilters.maxPrice !== "Seleccione"
-    ) {
-      const minPrice = newFilters.minPrice;
-      const maxPrice = newFilters.maxPrice;
+      // Filter for price
+      const carPrice = Number(car.price);
+      const minPrice =
+        newFilters.minPrice && newFilters.minPrice !== "Seleccione"
+          ? parseInt(newFilters.minPrice, 10)
+          : null;
+      const maxPrice =
+        newFilters.maxPrice && newFilters.maxPrice !== "Seleccione"
+          ? parseInt(newFilters.maxPrice, 10)
+          : null;
 
-      filtered = filtered.filter((car) => {
-        const carPrice = Number(car.price);
-        const minPriceNumber = parseInt(minPrice, 10);
-        const maxPriceNumber = parseInt(maxPrice, 10);
-        return !isNaN(carPrice) && carPrice >= minPriceNumber && carPrice <= maxPriceNumber;
-      });
-    }
+      if (minPrice && maxPrice) {
+        if (isNaN(carPrice) || carPrice < minPrice || carPrice > maxPrice) {
+          return false;
+        }
+      } else if (minPrice && carPrice < minPrice) return false;
+      else if (maxPrice && carPrice > maxPrice) return false;
 
-    if (newFilters.minPrice && (!newFilters.maxPrice || newFilters.maxPrice === "Seleccione")) {
-      const minPrice = newFilters.minPrice;
-      if (minPrice === "Seleccione") {
-        delete newFilters.minPrice;
-        delete newFilters.maxPrice;
-        setFilteredCars(filtered);
-      } else {
-        filtered = filtered.filter((car) => {
-          const carPrice = Number(car.price);
-          const minPriceNumber = parseInt(minPrice, 10);
-          return !isNaN(carPrice) && carPrice >= minPriceNumber;
-        });
+      // Filter for doors
+      if (newFilters.doors && newFilters.doors !== "Seleccione") {
+        if (car.doors.toString() !== newFilters.doors) {
+          return false;
+        }
       }
-    }
 
-    if (newFilters.maxPrice && (!newFilters.minPrice || newFilters.minPrice === "Seleccione")) {
-      const maxPrice = newFilters.maxPrice;
-      if (maxPrice === "Seleccione") {
-        delete newFilters.minPrice;
-        delete newFilters.maxPrice;
-        setFilteredCars(filtered);
-      } else {
-        filtered = filtered.filter((car) => {
-          const carPrice = Number(car.price);
-          const maxPriceNumber = parseInt(maxPrice, 10);
-          return !isNaN(carPrice) && carPrice <= maxPriceNumber;
-        });
+      // Filter for transmission
+      if (newFilters.transmission && newFilters.transmission.toLowerCase() !== "seleccione") {
+        if (!car.transmission.toLowerCase().startsWith(newFilters.transmission.toLowerCase())) {
+          return false;
+        }
       }
-    }
 
-    if (newFilters.doors) {
-      const doors = newFilters.doors;
-      if (doors === "Seleccione") {
-        delete newFilters.doors;
-        setFilteredCars(filtered);
-      } else {
-        filtered = filtered.filter((car) => car.doors.toString() === doors);
+      // Filter for color
+      if (newFilters.color && newFilters.color.toLowerCase() !== "seleccione") {
+        if (car.color.toLowerCase() !== newFilters.color.toLowerCase()) {
+          return false;
+        }
       }
-    }
 
-    if (newFilters.transmission) {
-      const transmission = newFilters.transmission.toLowerCase();
-      if (transmission === "seleccione") {
-        delete newFilters.transmission;
-        setFilteredCars(filtered);
-      } else {
-        filtered = filtered.filter((car) =>
-          car.transmission.toLowerCase().startsWith(transmission)
-        );
-      }
-    }
-
-    if (newFilters.color) {
-      const color = newFilters.color.toLowerCase();
-      if (color === "seleccione") {
-        delete newFilters.color;
-        setFilteredCars(filtered);
-      } else {
-        filtered = filtered.filter((car) => car.color === color);
-      }
-    }
+      return true;
+    });
 
     setCurrentFilters(newFilters);
     setFilteredCars(filtered);

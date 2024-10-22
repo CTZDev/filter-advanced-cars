@@ -14,3 +14,8 @@ export type CarFilter = {
   transmission: CarOption;
   color: CarOption;
 };
+
+export type PartialCarFilter = {
+  minPrice?: string;
+  maxPrice?: string;
+};

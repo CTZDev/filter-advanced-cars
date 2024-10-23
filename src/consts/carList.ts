@@ -74,7 +74,7 @@ const carList: Array<CarList> = [
     color: "rojo",
   },
   {
-    id: 8,
+    id: 9,
     brand: "ford mustang",
     year: "2019",
     doors: 2,
@@ -83,7 +83,7 @@ const carList: Array<CarList> = [
     color: "amarillo",
   },
   {
-    id: 9,
+    id: 10,
     brand: "dodge challenger",
     year: "2013",
     doors: 4,
@@ -92,7 +92,7 @@ const carList: Array<CarList> = [
     color: "violeta",
   },
   {
-    id: 10,
+    id: 11,
     brand: "audi a3",
     year: "2017",
     doors: 4,
@@ -101,7 +101,7 @@ const carList: Array<CarList> = [
     color: "rojo",
   },
   {
-    id: 11,
+    id: 12,
     brand: "dodge challenger",
     year: "2015",
     doors: 2,
@@ -110,7 +110,7 @@ const carList: Array<CarList> = [
     color: "azul",
   },
   {
-    id: 12,
+    id: 13,
     brand: "mercedez bens",
     year: "2012",
     doors: 4,
@@ -119,7 +119,7 @@ const carList: Array<CarList> = [
     color: "verde",
   },
   {
-    id: 13,
+    id: 14,
     brand: "bmw series 5",
     year: "2011",
     doors: 4,
@@ -128,7 +128,7 @@ const carList: Array<CarList> = [
     color: "violeta",
   },
   {
-    id: 14,
+    id: 15,
     brand: "ford mustang",
     year: "2014",
     doors: 4,
@@ -137,7 +137,7 @@ const carList: Array<CarList> = [
     color: "azul",
   },
   {
-    id: 15,
+    id: 16,
     brand: "dodge challenger",
     year: "2010",
     doors: 4,
@@ -146,7 +146,7 @@ const carList: Array<CarList> = [
     color: "verde",
   },
   {
-    id: 16,
+    id: 17,
     brand: "dodge challenger",
     year: "2013",
     doors: 4,
@@ -155,7 +155,7 @@ const carList: Array<CarList> = [
     color: "rojo",
   },
   {
-    id: 17,
+    id: 18,
     brand: "ford mustang",
     year: "2012",
     doors: 2,
@@ -164,7 +164,7 @@ const carList: Array<CarList> = [
     color: "negro",
   },
   {
-    id: 18,
+    id: 19,
     brand: "mercedez bens clase c",
     year: "2016",
     doors: 4,
@@ -173,7 +173,7 @@ const carList: Array<CarList> = [
     color: "blanco",
   },
   {
-    id: 19,
+    id: 20,
     brand: "audi a4",
     year: "2018",
     doors: 4,
@@ -182,7 +182,7 @@ const carList: Array<CarList> = [
     color: "rojo",
   },
   {
-    id: 20,
+    id: 21,
     brand: "bmw serie 6",
     year: "2019",
     doors: 4,

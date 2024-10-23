@@ -1,0 +1,13 @@
+.background {
+  position: absolute;
+  display: block;
+  top: 350px;
+  left: 0;
+  z-index: -1;
+}
+
+#bg-wave {
+  background-image: url("./wave.svg");
+  background-repeat: no-repeat;
+  background-size: 150%;
+}

@@ -7,7 +7,7 @@
 }
 
 #bg-wave {
-  background-image: url("./wave.svg");
+  background-image: url("/wave.svg");
   background-repeat: no-repeat;
   background-size: 150%;
 }

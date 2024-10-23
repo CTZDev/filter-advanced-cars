@@ -20,7 +20,12 @@ export const Filter: React.FC<FilterProps> = ({ title, data, filterKey }) => {
 
   return (
     <div className="flex flex-col gap-2">
-      <h3 className="text-center font-normal text-base">{title}</h3>
+      <h3
+        className="text-center font-semibold text-lg text-white"
+        style={{ textShadow: "1px 1px 5px rgba(0, 0, 0, .9)" }}
+      >
+        {title.toUpperCase()}
+      </h3>
       <Select
         defaultValue="Seleccione"
         style={{ width: 200, fontFamily: "Poppins" }}
